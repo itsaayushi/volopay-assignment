@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-function Tab({ label, isActive }) {
+import { Link } from "react-router-dom";
+function Tab({ label, isActive, path }) {
   return (
-    <div className="tab">
-      <span className={`tab-${isActive ? "active" : "inactive"} `}>
-        {label}
-      </span>
-      {isActive ? <div className="tab-dot" /> : null}
-    </div>
+    <Link to={path}>
+      <div className="tab">
+        <span className={`tab-${isActive ? "active" : "inactive"} `}>
+          {label}
+        </span>
+        {isActive ? <div className="tab-dot" /> : null}
+      </div>
+    </Link>
   );
 }
 
