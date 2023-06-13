@@ -1,6 +1,6 @@
 import React from "react";
 import { NAVIGATION_CONFIG } from "../../global/constant";
-import Tab from "../core/tab";
+import Tab from "../core/Tab";
 import { useLocation } from "react-router-dom";
 
 function Navbar() {
