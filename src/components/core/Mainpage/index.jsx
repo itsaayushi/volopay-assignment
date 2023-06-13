@@ -21,14 +21,40 @@ function Mainpage({ pageType }) {
       ...(pageType === "blocked" ? { status: "block" } : {}),
     });
 
-    setData([...apiData?.data]);
-
+    if (pageNumber === 1) {
+      setData([...apiData?.data]);
+    } else {
+      setData((prevData) => [...prevData, ...apiData?.data]);
+    }
+    console.log(apiData.data);
     setLoading(false);
   };
 
   useEffect(() => {
     mydata();
   }, [pageNumber, pageType, searchQuery, cardType]);
+
+  useEffect(() => {
+    setPageNumber(1);
+    mydata();
+  }, [searchQuery, cardType]);
+
+  // infinite scroll
+  const handleScroll = useCallback(() => {
+    const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+
+    if (scrollTop + clientHeight >= scrollHeight - 10) {
+      setPageNumber(pageNumber + 1);
+      mydata();
+    }
+  }, [mydata]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
   //  filter
   const handleFilterSelect = (selectedOption) => {
