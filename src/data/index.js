@@ -1,20 +1,31 @@
 import API_DATA from "./data.json";
 
 export const getData = (appliedFilter) => {
-  const { ownerId, status } = {
+  const { searchQuery, cardType, pageNumber, ownerId, status, limit } = {
+    searchQuery: "",
+    cardType: "",
     ownerId: null,
     status: null,
+    pageNumber: 1,
+    limit: 10,
     ...appliedFilter,
   };
   const data = API_DATA.data
     .filter((item) =>
-      ownerId
+      searchQuery?.length
+        ? item.name.toLowerCase().includes(searchQuery.toLowerCase())
+        : true && cardType?.length
+        ? cardType === item.card_type
+        : true && ownerId
         ? ownerId === item.owner_id
         : true && status
         ? status === item.status
         : true
     )
-    .slice(1, 10);
+    .slice(
+      pageNumber - 1 < 0 ? 0 : (pageNumber - 1) * limit,
+      pageNumber * limit
+    );
 
   return new Promise((resolve, reject) => {
     // Simulating an asynchronous operation

@@ -18,6 +18,20 @@
   }
 }
 
-// .no-data-text {
-//   margin: auto;
-// }
+// search box
+
+.search-box {
+  border-radius: 10px;
+  padding-left: 8px;
+  border: 0.4px solid $black-dark;
+}
+
+// filter
+
+.filter {
+  select {
+    border: none;
+  }
+  border-radius: 10px;
+  border: 0.4px solid $black-dark;
+}
