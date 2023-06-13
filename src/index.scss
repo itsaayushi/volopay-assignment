@@ -1,0 +1,44 @@
+// css flushing
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  max-width: 100vw;
+}
+
+button,
+button:hover,
+button:active {
+  border: none;
+  background-color: transparent;
+}
+
+a,
+a:link,
+a:active,
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+.logo {
+  width: 50px;
+  border-radius: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap");
+@import "./assets/Styles/variable.scss";
+@import "./assets/Styles/global.scss";
+@import "./assets/Styles/typography.scss";
+@import "./App.scss";
+@import "./assets/Styles/components/tab.scss";
+
+@import "./assets/Styles/components/header.scss";
