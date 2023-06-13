@@ -1,7 +1,12 @@
 import React from "react";
+import Mainpage from "../../components/core/Mainpage";
 
 function AllPage() {
-  return <div>Allpage</div>;
+  return (
+    <>
+      <Mainpage />
+    </>
+  );
 }
 
 export default AllPage;
