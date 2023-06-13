@@ -1,7 +1,12 @@
 import React from "react";
+import Mainpage from "../../components/core/Mainpage";
 
 function BlockedPage() {
-  return <div>Blockpage</div>;
+  return (
+    <>
+      <Mainpage />
+    </>
+  );
 }
 
 export default BlockedPage;
